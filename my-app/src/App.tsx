@@ -1,8 +1,8 @@
 import * as React from 'react';
 
 import './App.css';
-import SwitchComponent from './Switch/SwitchswitchComponent';
-import WordComponent from './Word/Wordword';
+import SwitchComponent from './Switch/SwitchComponent';
+import WordComponent from './Word/Word';
 
 class App extends React.Component {
   render() {

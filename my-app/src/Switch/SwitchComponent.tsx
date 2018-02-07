@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import './App.css';
-import Switch from './Switchswitch';
+// import './App.css';
+import Switch from './Switch';
 
 
 class SwitchComponent extends React.Component{
