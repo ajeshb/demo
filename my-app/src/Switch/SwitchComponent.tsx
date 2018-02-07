@@ -1,18 +1,20 @@
 import * as React from 'react';
 
-// import './App.css';
 import Switch from './Switch';
 
 
-class SwitchComponent extends React.Component{
+class SwitchComponent extends React.Component<{},{on: boolean}>{
+
   constructor(props: any) {
     super(props);
+    const initialState = { on: false };
+    this.state = initialState
   }
-
-  state = {on: false}
+  
   toggle = ()=> {
   	this.setState({on: !this.state.on})
   }
+
   render(){
     const {on} = this.state
     return <Switch on={on} onClick={this.toggle}/>
