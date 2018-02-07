@@ -2,20 +2,20 @@ import * as React from 'react';
 
 import './../App.css';
 
-const Switch: React.SFC<{on: boolean}> = ({on}) => 
+const Switch: React.SFC<{on: boolean, onClick: any}> = ({on, onClick}) => 
   (
       <div className="toggle">
         <input
           className="toggle-input"
           type="checkbox"
         />
-        <button className={getClasses(on).join(" ")} onClick={toggle}/>     
+        <button className={getClasses(on).join(" ")} onClick={onClick}/>     
       </div>
   )
 
-const toggle = () => {
+// const toggle = () => {
 
-}
+// }
 
 const getClasses = (on: boolean) => {
   return ["toggle-btn " , (on ? 'toggle-btn-on':'toggle-btn-off')];
