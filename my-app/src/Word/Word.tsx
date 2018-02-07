@@ -1,5 +1,9 @@
 import * as React from 'react';
 
+// const WordComponent = () => {
+  
+// }
+
 class WordComponent extends React.Component <{message: string}, {count: number}> {
   
   constructor(props: any) {
