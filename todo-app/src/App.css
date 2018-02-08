@@ -1,5 +1,16 @@
+.todo-box{
+  width: 500px;
+}
+.todo-input{
+  width: 100%;
+}
+.todo-box-input{
+  border: 1px gray solid;
+}
+
 .todo-details{
   width: 100%;
+  border: 1px gray solid;
 }
 .todo-details .delete-button{
   border: none;
