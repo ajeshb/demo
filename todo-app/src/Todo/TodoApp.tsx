@@ -1,15 +1,24 @@
 import * as React from 'react';
 import TodoList from './TodoList';
 
-class TodoApp extends React.Component<{}, { items: Array<string> }> {
+interface appData{
+  items: Array<string>,
+  todoName: string
+}
+
+class TodoApp extends React.Component<{}, appData> {
   constructor(props: any) {
     super(props);
     const itemsArray = ['Apple'];
-    this.state = { items: itemsArray };
+    this.state = { items: itemsArray ,todoName: ''};
+    this.addItem = this.addItem.bind(this);
   }
   addItem = (event: any) => {
     if (event.keyCode == 13) {
-      this.state.items.push(event.target.value);
+      const tempArray = this.state.items;
+      tempArray.push(event.target.value);
+      this.setState({items: tempArray, todoName: ''})
+      // this.state.items.push(event.target.value);
     }
   };
   render() {
@@ -20,7 +29,7 @@ class TodoApp extends React.Component<{}, { items: Array<string> }> {
             type="text"
             className="todo-input"
             name="todo-input"
-            onKeyUp={this.addItem.bind(this)}
+            onKeyUp={this.addItem}
           />
         </div>
         <TodoList items={this.state.items} />

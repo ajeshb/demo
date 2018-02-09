@@ -6,6 +6,8 @@
 }
 .todo-box-input{
   border: 1px gray solid;
+  margin-left: 26px;
+  margin-right: 16Px;
 }
 
 .todo-details{
