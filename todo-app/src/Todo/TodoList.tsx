@@ -1,18 +1,40 @@
 import * as React from 'react';
 import Todo from './Todo';
 
-class TodoList extends React.Component<{ items: Array<string> }> {
+type TData = {
+    id: string,
+    title: string
+}
+
+class TodoList extends React.Component<{ items: TData[], onDelete: any }> {
   constructor(props: any) {
     super(props);
-  }
-  render() {
-    const elementArray = this.props.items.map(item => (
-      <li key={item}>
-        <Todo value={item} />
-      </li>
-    ));
 
-    return <ul>{elementArray}</ul>;
+    this.onDelete = this.onDelete.bind(this)
+  }
+
+  onDelete(index: number | undefined) {
+      this.props.onDelete(index)
+  }
+
+  generateData(items: TData[]) {
+      return items.map(({ title, id }, index) => {
+        return (
+          <li key={id}>
+              <Todo value={title} index={index} onDelete={this.onDelete}/>
+          </li>
+        )
+    })
+  }
+
+  render() {
+      const {
+          items
+      } = this.props
+
+      return (
+          <ul>{this.generateData(items)}</ul> 
+      )
   }
 }
 
