@@ -9,11 +9,11 @@ interface appData{
 class TodoApp extends React.Component<{}, appData> {
   constructor(props: any) {
     super(props);
-    const itemsArray = ['Apple'];
-    this.state = { items: itemsArray ,todoName: ''};
+    this.state = { items: [] ,todoName: ''};
     this.addItem = this.addItem.bind(this);
   }
   addItem = (event: any) => {
+    this.setState({todoName:event.target.value});
     if (event.keyCode == 13) {
       const tempArray = this.state.items;
       tempArray.push(event.target.value);
