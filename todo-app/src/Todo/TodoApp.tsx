@@ -11,10 +11,14 @@ class TodoApp extends React.Component<{}, appData> {
     super(props);
     this.state = { items: [] ,todoName: ''};
     this.addItem = this.addItem.bind(this);
+    this.populateTodoName = this.populateTodoName.bind(this);
+  }
+  populateTodoName = (event: any) => {
+    this.setState({todoName: event.target.value})
   }
   addItem = (event: any) => {
-    this.setState({todoName:event.target.value});
     if (event.keyCode == 13) {
+      event.stopPropagation();
       const tempArray = this.state.items;
       tempArray.push(event.target.value);
       this.setState({items: tempArray, todoName: ''})
@@ -29,7 +33,9 @@ class TodoApp extends React.Component<{}, appData> {
             type="text"
             className="todo-input"
             name="todo-input"
+            value={this.state.todoName}
             onKeyUp={this.addItem}
+            onChange={this.populateTodoName}
           />
         </div>
         <TodoList items={this.state.items} />
